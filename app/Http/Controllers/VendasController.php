@@ -68,7 +68,7 @@ class VendasController extends Controller
      */
     public function destroy($id)
     {
-        return Vendedor::destroy($id);
+        return Vendas::destroy($id);
     }
 
     // public function enviaNotificacao($parceiro, $valor, $nova_pontuacao, $empresa, $destinatario)
