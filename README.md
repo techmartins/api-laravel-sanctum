@@ -17,10 +17,10 @@ GET   /api/vendedores
 GET   /api/vendedores/:id
 
 POST   /api/vendedores
-@body: name, slug, description, price
+@body: nome, email
 
 PUT   /api/vendedores/:id
-@body: ?name, ?slug, ?description, ?price
+@body: nome, email
 
 DELETE  /api/vendedores/:id
 
