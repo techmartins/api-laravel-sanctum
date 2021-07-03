@@ -1,21 +1,8 @@
 # Laravel REST API with Sanctum
 
-This is an example of a REST API using auth tokens with Laravel Sanctum
+Esta é uma API de teste com CRUD básico e autenticação com Sanctum
 
 ## Usage
-
-Change the *.env.example* to *.env* and add your database info
-
-For SQLite, add
-```
-DB_CONNECTION=sqlite
-DB_HOST=127.0.0.1
-DB_PORT=3306
-```
-
-Create a _database.sqlite_ file in the _database_ directory
-
-```
 # Run the webserver on port 8000
 php artisan serve
 ```
@@ -25,25 +12,17 @@ php artisan serve
 ```
 # Public
 
-GET   /api/products
-GET   /api/products/:id
+GET   /api/vendedores
 
-POST   /api/login
-@body: email, password
+GET   /api/vendedores/:id
 
-POST   /api/register
-@body: name, email, password, password_confirmation
-
-
-# Protected
-
-POST   /api/products
+POST   /api/vendedores
 @body: name, slug, description, price
 
-PUT   /api/products/:id
+PUT   /api/vendedores/:id
 @body: ?name, ?slug, ?description, ?price
 
-DELETE  /api/products/:id
+DELETE  /api/vendedores/:id
 
 POST    /api/logout
 ```
