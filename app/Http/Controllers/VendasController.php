@@ -30,7 +30,7 @@ class VendasController extends Controller
             'valor' => 'required'
         ]);
 
-        $request['comissão'] = $request->valor * 0.085;
+        $request['comissao'] = $request->valor * 0.085;
 
         return Vendas::create($request->all());
     }

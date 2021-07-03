@@ -11,7 +11,7 @@ class Vendas extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = [
-        'id_vendedor',
+        'vendedor_id',
         'valor',
         'comissao'
     ];

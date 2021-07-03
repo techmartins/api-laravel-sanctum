@@ -14,7 +14,7 @@ class VendedorController extends Controller
      */
     public function index()
     {
-        return Vendedor::all();
+        return Vendedor::where('vendedors.deleted_at', null)->select('vendedors.id','vendedors.nome', 'vendedors.email', 'vendas.comissao')->join('vendas', 'vendedors.id', '=', 'vendas.vendedor_id')->get();
     }
 
     /**
