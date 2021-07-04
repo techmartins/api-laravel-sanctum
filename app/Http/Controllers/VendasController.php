@@ -51,7 +51,6 @@ class VendasController extends Controller
         $vendas = Vendas::create($request->all());
 
         return $vendas;
-        // return Vendas::create($request->all());
     }
 
     /**
@@ -63,6 +62,12 @@ class VendasController extends Controller
     public function show($id)
     {
         return Vendas::find($id);
+    }
+
+    public function findVendasPorVendedor(Request $request)
+    {
+        return Vendas::where('vendedor_id', $request->vendedor_id)
+        ->join('vendedors', 'vendedors.id', '=', 'vendas.vendedor_id')->get();
     }
 
     /**
