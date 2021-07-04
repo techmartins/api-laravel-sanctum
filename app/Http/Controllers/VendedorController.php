@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vendedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VendedorController extends Controller
 {
@@ -14,7 +15,11 @@ class VendedorController extends Controller
      */
     public function index()
     {
-        return Vendedor::where('vendedors.deleted_at', null)->select('vendedors.id','vendedors.nome', 'vendedors.email', 'vendas.comissao')->join('vendas', 'vendedors.id', '=', 'vendas.vendedor_id')->get();
+        return Vendedor::all();
+        // return DB::table('vendedors')
+        //     ->join('vendas', 'vendedors.id', '=', 'vendas.vendedor_id')
+        //     ->select('vendedors.id','vendedors.nome', 'vendedors.email', 'vendas.comissao')
+        //     ->get();
     }
 
     /**

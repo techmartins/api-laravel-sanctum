@@ -17,6 +17,7 @@ class CreateVendedorsTable extends Migration
             $table->id();
             $table->string('nome');
             $table->string('email');
+            $table->decimal('comissao', $precision = 8, $scale = 2)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

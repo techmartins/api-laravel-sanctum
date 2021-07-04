@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vendas;
+use App\Models\Vendedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VendasController extends Controller
 {
@@ -29,10 +31,27 @@ class VendasController extends Controller
             'vendedor_id' => 'required',
             'valor' => 'required'
         ]);
-
+        
         $request['comissao'] = $request->valor * 0.085;
+        
+        $vendedor = Vendedor::find($request->vendedor_id);
 
-        return Vendas::create($request->all());
+        if($vendedor->comissao != null){
+            
+            $nova_comissao['comissao'] = $vendedor->comissao + $request['comissao'];
+
+        }else{
+
+            $nova_comissao['comissao'] = $request['comissao'];
+
+        }
+
+        $vendedor->update($nova_comissao);
+
+        $vendas = Vendas::create($request->all());
+
+        return $vendas;
+        // return Vendas::create($request->all());
     }
 
     /**

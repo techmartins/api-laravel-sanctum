@@ -12,6 +12,7 @@ class Vendedor extends Model
     use SoftDeletes;
     protected $fillable = [
         'nome',
-        'email'
+        'email',
+        'comissao'
     ];
 }
