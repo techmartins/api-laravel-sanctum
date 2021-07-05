@@ -16,7 +16,8 @@ class VendasController extends Controller
      */
     public function index()
     {
-        return Vendas::all();
+        return DB::table('vendas')->select('vendas.id', 'vendas.vendedor_id', 'vendedors.nome', 'vendedors.email', 'vendas.comissao', 'vendas.valor')
+        ->join('vendedors', 'vendedors.id', '=', 'vendas.vendedor_id')->get();
     }
 
     /**
