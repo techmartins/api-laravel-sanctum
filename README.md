@@ -24,5 +24,20 @@ PUT   /api/vendedores/:id
 
 DELETE  /api/vendedores/:id
 
+GET /api/vendas
+
+GET /api/vendas/:id
+
+POST /api/vendas
+@body: valor, vendedor
+
+PUT /api/vendas/:id
+@body: valor, vendedor
+
+DELETE /api/vendas/:id
+
+
+
+
 POST    /api/logout
 ```
